@@ -10,7 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Facade - Design Pattern - nome que o laravel deu - acessa como se fosse estatico mas não são
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'Admin',
+], function () {
+    Route::resource('clients', 'ClientsController');
 });
